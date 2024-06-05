@@ -1,0 +1,14 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<div class="edit-article-container">
+    <h2>Edit Article</h2>
+    <form action="{% url 'articles:edit' id=article.id %}" method="post" enctype="multipart/form-data" class="edit-article-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-group">
+            <input type="submit" value="Save Changes" class="btn-submit">
+        </div>
+    </form>
+</div>
+{% endblock %}

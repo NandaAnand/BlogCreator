@@ -1,0 +1,65 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+<div class="article-detail">
+    <div class="article-header">
+        <h2>{{ article.title }}</h2>
+        <div class="article-actions">
+            {% if request.user == article.author %}
+            <a href="{% url 'articles:edit' article.id %}" class="edit-icon" title="Edit"><i class="fas fa-edit"></i></a>
+            <a href="#" class="delete-icon" title="Delete" data-delete-url="{% url 'articles:delete' id=article.id %}"><i class="fas fa-trash-alt"></i></a>
+            {% endif %}
+        </div>
+    </div>
+    <img class= "article-img" src="{{ article.thumb.url }}" alt="{{ article.title }}">
+    <div class="article-body">{{ article.body|safe }}</div>
+    <p class="article-date">- {{ article.author }}</p>
+    <p class="article-date">{{ article.date }}</p>
+</div>
+
+<!-- The Modal -->
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        
+        <p>Are you sure you want to delete the article "{{ article.title }}"?</p>
+        <form method="post" id="deleteForm">
+            {% csrf_token %}
+            <div class="modal-buttons">
+                <button type="submit">Yes, delete</button>
+                <button type="button" class="close-modal">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var deleteModal = document.getElementById('deleteModal');
+    var deleteButtons = document.querySelectorAll('.delete-icon');
+    var closeModalButtons = document.querySelectorAll('.close-modal');
+    var deleteForm = document.getElementById('deleteForm');
+
+    deleteButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            var deleteUrl = this.getAttribute('data-delete-url');
+            deleteForm.setAttribute('action', deleteUrl);
+            deleteModal.style.display = 'block';
+        });
+    });
+
+    closeModalButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            deleteModal.style.display = 'none';
+        });
+    });
+
+    window.onclick = function(event) {
+        if (event.target == deleteModal) {
+            deleteModal.style.display = 'none';
+        }
+    }
+});
+</script>
+{% endblock %}

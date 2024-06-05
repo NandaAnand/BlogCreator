@@ -1,0 +1,28 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+<div class="articles">
+
+    {% if articles %}
+        {% for article in articles %}
+            <div class="article">
+                <img src="{{ article.thumb.url }}" alt="Article Image">
+                <div class="article-content">
+                    <h2><a href="{% url 'articles:detail' slug=article.slug %}">{{ article.title }}</a></h2>
+                    
+                    <div class="author-container">
+                        <p class="author">{{ article.author }}</p>
+                        
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+    <h2>No articles yet.</h2>
+    {% endif %}
+</div>
+<a href="{% url 'articles:mylist' %}" class="my-article-button"><i class="fa-solid fa-newspaper"></i></a>
+<!-- Add new article button -->
+<a href="{% url 'articles:create' %}" class="add-article-button"><i class="fas fa-plus"></i></a>
+{% endblock %}

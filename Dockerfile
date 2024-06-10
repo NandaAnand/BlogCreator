@@ -18,12 +18,6 @@ RUN pip install  --verbose -r requirements.txt
 # Copy project files to the working directory
 COPY . /app/
 
-# Copy the .env file
-COPY .env /app/.env
-
-# Copy the project code into the container
-COPY . /app/
-
 # Ensure the entrypoint.sh script is executable
 RUN chmod +x /app/entrypoint.sh
 

@@ -24,11 +24,8 @@ COPY .env /app/.env
 # Copy the project code into the container
 COPY . /app/
 
-# Collect static files
-RUN python manage.py collectstatic --noinput
+# Ensure the entrypoint.sh script is executable
+RUN chmod +x /app/entrypoint.sh
 
-# Expose the port the app runs on
-EXPOSE 8000
-
-# Start the application
-CMD ["gunicorn", "--timeout", "120", "django_blog.wsgi:application", "--bind", "0.0.0.0:8000"]
+# Run the entrypoint script
+ENTRYPOINT ["/app/entrypoint.sh"]

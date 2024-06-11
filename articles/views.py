@@ -47,11 +47,12 @@ def article_create(request):
 
 @login_required(login_url='/accounts/login/')
 def article_edit(request, id):
-    print(id)
     article = get_object_or_404(Article, id=id)
     if request.method == 'POST':
         form = forms.CreateArticle(request.POST, request.FILES, instance=article)
         if form.is_valid():
+            if 'thumb' not in request.FILES:
+                form.instance.thumb = article.thumb  
             form.save()
             return redirect('articles:detail', slug=article.slug)
     else:

@@ -3,7 +3,7 @@
 {% block content %}
 <div class="create-article-container">
     <h2>Create an Article</h2>
-    <form action="{% url 'articles:create' %}" method="post" enctype="multipart/form-data" class="create-article-form" >
+    <form  onsubmit="return validateForm()" action="{% url 'articles:create' %}" method="post" enctype="multipart/form-data" class="create-article-form" >
         {% csrf_token %}
         {{ form.as_p }}
         <div class="form-group">
@@ -11,4 +11,14 @@
         </div>
     </form>
 </div>
+<script>
+    function validateForm() {
+        var thumbnail = document.getElementById("id_thumb").value;
+        if (!thumbnail) {
+            alert("Thumbnail is required");
+            return false;
+        }
+        return true;
+    }
+    </script>
 {% endblock %}

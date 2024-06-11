@@ -4,14 +4,20 @@ from tinymce.models import HTMLField
 import bleach
 from bleach.css_sanitizer import CSSSanitizer
 from bs4 import BeautifulSoup
+from django.core.exceptions import ValidationError
 # Create your models here.
 
+
+def validate_thumbnail(value):
+    if not value:
+        raise ValidationError("Thumbnail field is required.") 
+    
 class Article(models.Model):
     title = models.CharField(max_length = 100)
     slug = models.SlugField()
     body = HTMLField()
     date = models.DateTimeField(auto_now_add=True)
-    thumb = models.ImageField(default='default.png',blank=True)
+    thumb = thumb = models.ImageField(upload_to='thumbnails/', validators=[validate_thumbnail])
     author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     article_image = models.ImageField(upload_to='article_images/', blank=True, null=True)
 

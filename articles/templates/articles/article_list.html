@@ -7,7 +7,9 @@
     {% if articles %}
         {% for article in articles %}
             <div class="article">
+                {% if article.thumb %}
                 <img src="{{ article.thumb.url }}" alt="Article Image">
+                {% endif %}
                 <div class="article-content">
                     <h2><a href="{% url 'articles:detail' slug=article.slug %}">{{ article.title }}</a></h2>
                     

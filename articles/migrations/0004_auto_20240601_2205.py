@@ -7,18 +7,18 @@ import tinymce.models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('articles', '0003_article_author'),
+        ("articles", "0003_article_author"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='article',
-            name='article_image',
-            field=models.ImageField(blank=True, null=True, upload_to='article_images/'),
+            model_name="article",
+            name="article_image",
+            field=models.ImageField(blank=True, null=True, upload_to="article_images/"),
         ),
         migrations.AlterField(
-            model_name='article',
-            name='body',
+            model_name="article",
+            name="body",
             field=tinymce.models.HTMLField(),
         ),
     ]

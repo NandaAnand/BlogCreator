@@ -57,7 +57,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    
+
 }
 
 nav ul.nav-left {
@@ -97,7 +97,7 @@ nav ul li form button:hover {
 .navbar-username {
     color: white;
     padding: 10px 15px;
-    
+
 }
 
 /* Add new article button */
@@ -243,7 +243,7 @@ nav ul li form button:hover {
 }
 
 .article-body {
-    
+
     font-size: 1.1em;
     line-height: 1.6;
     color: #333;
@@ -280,7 +280,7 @@ nav ul li form button:hover {
     font-size: 0.9em;
     color: #777;
     text-align: right;
-    
+
 }
 .article-header {
     display: flex;
@@ -383,7 +383,7 @@ nav ul li form button:hover {
     color: #aaa;
     font-size: 24px;
     font-weight: bold;
-    
+
     top: 10px;
     right: 20px;
     cursor: pointer;
@@ -511,7 +511,7 @@ nav ul li form button:hover {
 }
 .create-article-container h2 {
     color: #1995AD;
-    
+
 }
 
 /* Ensure all elements in form are styled properly */
@@ -593,7 +593,7 @@ nav ul li form button:hover {
 }
 .edit-article-container h2 {
     color: #1995AD;
-    
+
 }
 
 /* Ensure all elements in form are styled properly */
@@ -688,7 +688,7 @@ footer {
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: row;
-        
+
         align-items: center;
     }
 
@@ -696,13 +696,13 @@ footer {
      {
         flex-direction: row;
         justify-content: flex-start;
-       
-        
+
+
     }
 
     .nav-right {
         justify-content: flex-end;
-        
+
     }
     .navbar-username {
         width: 100%;

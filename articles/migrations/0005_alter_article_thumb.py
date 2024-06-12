@@ -7,13 +7,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('articles', '0004_auto_20240601_2205'),
+        ("articles", "0004_auto_20240601_2205"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='article',
-            name='thumb',
-            field=models.ImageField(upload_to='thumbnails/', validators=[articles.models.validate_thumbnail]),
+            model_name="article",
+            name="thumb",
+            field=models.ImageField(
+                upload_to="thumbnails/", validators=[articles.models.validate_thumbnail]
+            ),
         ),
     ]

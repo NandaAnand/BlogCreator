@@ -32,7 +32,7 @@ jobs:
           source venv/bin/activate
           python manage.py test
         env:
-          DJANGO_SETTINGS_MODULE: myproject.settings
+          DJANGO_SETTINGS_MODULE: django_blog.settings
 
   deploy:
     needs: build

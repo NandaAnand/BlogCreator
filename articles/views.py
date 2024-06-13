@@ -27,7 +27,7 @@ def article_detail(request, slug):
     # return HttpResponse(slug)
     articles = Article.objects.filter(slug=slug)
     if articles.exists():
-        article = articles.first()  # Or implement your logic to choose one article
+        article = articles.first()
         return render(request, "articles/article_detail.html", {"article": article})
     else:
         # Handle the case where no article with the given slug exists

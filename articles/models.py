@@ -28,7 +28,6 @@ class Article(models.Model):
     )
 
     def save(self, *args, **kwargs):
-        # Your existing Bleach cleaning...
 
         # Extract image URLs from body and save to article_image field
         soup = BeautifulSoup(self.body, "html.parser")

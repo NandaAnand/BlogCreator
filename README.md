@@ -103,3 +103,10 @@ http://127.0.0.1:8000/
 4. **Deploy the project**
 
 5. **Access your application via the Railway-provided URL.**
+
+```bash
+
+eg:
+https://blogcreator-production.up.railway.app/articles/
+
+ ```

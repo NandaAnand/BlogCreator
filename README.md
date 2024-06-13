@@ -1,6 +1,6 @@
 # BlogCreator
 
-A simple blog application built with Django.
+This project is an end-to-end Django application designed to create and manage blog posts. The application features user authentication, post creation, editing, and deletion, and supports media uploads. The project is deployed using Railway and Docker for efficient and scalable deployment.
 
 ## Features
 
